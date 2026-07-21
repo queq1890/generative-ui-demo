@@ -15,14 +15,23 @@ class: text-center
 
 # 📊 まずはみなさんに質問
 
-<SlidoEmbed poll-id="POLL_1_PLACEHOLDER" />
+<div class="mt-6 text-xl">
+AI に UI を作らせたことはありますか?
+</div>
 
-<!--
-Slido 投票: 「AI に UI を作らせたことある?」
-- v0 / Lovable などで作ったことがある
-- チャットのテキスト応答で十分
-- 何それ?
--->
+<div class="mt-6 text-left inline-block">
+
+- 🛠️ v0 / Lovable などで作ったことがある
+- 💬 チャットのテキスト応答で十分
+- 🤔 何それ?
+
+</div>
+
+<div class="mt-8 text-sm opacity-70">
+Google Meet のコメントで教えてください
+</div>
+
+<!-- 回答は Meet のコメント欄で拾って、温度感に合わせて導入の深さを調整する -->
 
 ---
 layout: default

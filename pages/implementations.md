@@ -5,16 +5,24 @@ class: text-center
 
 # 📊 クイズ
 
-<SlidoEmbed poll-id="POLL_QUIZ_PLACEHOLDER" />
+<div class="mt-6 text-xl">
+LLM に UI を生成させるとき、一番の課題はどれでしょう?
+</div>
 
-<!--
-Slido クイズ: 「LLM に UI を生成させるとき、一番の課題は?」
-- 出力が壊れる(不正な JSON / HTML)
-- トークンコストと速度
-- デザインの一貫性
-- セキュリティ
-→ 全部正解。次の実装がこれらをどう解くかを見る
--->
+<div class="mt-6 text-left inline-block">
+
+- 💥 出力が壊れる(不正な JSON / HTML)
+- 💸 トークンコストと速度
+- 🎨 デザインの一貫性
+- 🔒 セキュリティ
+
+</div>
+
+<div class="mt-8 text-sm opacity-70">
+Google Meet のコメントでどうぞ
+</div>
+
+<!-- 答え: 全部正解。この後の実装(OpenUI / A2UI)がこれらをどう解くか、という導入に使う -->
 
 ---
 layout: default

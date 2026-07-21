@@ -12,9 +12,9 @@ pnpm build      # GitHub Pages 用にビルド(--base /generative-ui-demo/)
 
 `main` に push すると GitHub Actions が GitHub Pages にデプロイする。
 
-### Slido
+### インタラクション
 
-`SlidoEmbed` コンポーネントの `poll-id` に Slido のイベント ID を設定する(現状はプレースホルダー)。
+投票・クイズ・Q&A はすべて Google Meet のコメントで受ける(スライド側の準備は不要)。
 
 ## デモ
 
