@@ -17,6 +17,8 @@ layout: default
 のぞみ 1 号は 6:00 東京発、8:22 新大阪着です。<br>
 のぞみ 3 号は 6:15 東京発…(以下 20 行続く)
 
+<!-- 時刻は 2026 年 7 月時点の実ダイヤ(駅探・Yahoo!路線情報で検証済み) -->
+
 </div>
 
 <v-click>
@@ -96,11 +98,24 @@ layout: default
 
 # もう身近にある実例
 
-- **ChatGPT**：Apps SDK でチャット内にアプリ UI(Spotify、Zillow…)
-- **Claude**：応答の中で地図やチャートを生成
-- **Gemini**：Dynamic View(応答ごとに UI を組み立てる)
+<div class="mt-4">
 
-<!-- TODO: スクリーンショットを入れる -->
+- **ChatGPT**：Apps SDK(2025/10 発表、MCP を拡張したオープン規格)。チャット内に Spotify や Zillow のアプリ UI が開く
+- **Claude**：応答の中にチャートや図をインラインで生成し、会話で修正できる(2026/3 ベータ)
+- **Gemini**：Dynamic View(2025/11、Gemini 3 と同時発表)。プロンプトごとに UI を設計してコーディングする
+
+</div>
+
+<div class="mt-6 text-sm opacity-70">
+主要 3 プラットフォームが、この 1 年で一斉に「応答としての UI」へ踏み出した
+</div>
+
+<!--
+出典:
+- OpenAI: Introducing apps in ChatGPT and the new Apps SDK (2025-10-06)。ローンチパートナー 7 社に Spotify・Zillow を含む
+- Anthropic: Claude builds interactive visuals right in your conversation (2026-03-12)。公式は「charts, diagrams and visualizations」
+- Google: Gemini 3 発表 (2025-11-18)。generative interfaces の実験として visual layout と dynamic view
+-->
 
 ---
 layout: default

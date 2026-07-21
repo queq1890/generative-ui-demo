@@ -7,8 +7,8 @@ layout: default
 <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm">
 
 <div class="box">💬 <strong>Next.js</strong><br>チャット入力 + ストリーミング受信</div>
-<div class="box">🤖 <strong>Claude API</strong><br>カタログ制約付きで JSON を生成</div>
-<div class="box">📦 <strong>json-render</strong><br>JSON → React コンポーネント</div>
+<div class="box">🤖 <strong>Claude API</strong><br>カタログ制約付きで JSON Patch を 1 行ずつ生成</div>
+<div class="box">📦 <strong>json-render</strong><br>Patch を逐次適用 → React コンポーネント</div>
 
 </div>
 
@@ -17,7 +17,7 @@ layout: default
 見どころ：
 
 1. カタログ(コンポーネント定義)がプロンプトに変換される様子
-2. JSON がストリーミングされ、UI が段階的に組み上がる様子
+2. JSON Patch が 1 行ずつ届き、UI が段階的に組み上がる様子
 3. カタログ外のコンポーネントを頼んでも壊れないこと
 
 </div>
@@ -48,7 +48,7 @@ layout: default
 <div>
 
 - ✅ カタログ定義(Zod)が、そのままプロンプトと型安全性の源になる
-- ✅ ストリーミング中は、パースできた部分だけが描画される
+- ✅ ストリーミング中は、完成した Patch 行だけが適用される(壊れた中間状態が出ない)
 - ✅ LLM がカタログ外のコンポーネントを出そうとしても、描画されない
 
 </div>
