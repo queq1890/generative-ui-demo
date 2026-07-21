@@ -6,7 +6,7 @@ transition: slide-left
 
 # ✨ Generative UI
 
-AI が "応答として UI" を返す時代
+AI が「応答として UI」を返す時代
 
 ---
 layout: center
@@ -32,10 +32,10 @@ layout: default
 
 <div class="mt-8 text-lg">
 
-1. **Generative UI とは** — 応答がテキストから UI になる
-2. **系譜: Server Driven UI** — "schema で UI を配る" は昔からあった
-3. **実装: OpenUI と A2UI** — 2 つのオープンな取り組み
-4. **Demo** — Next.js + json-render でカタログ型を体感
+1. **Generative UI とは**：応答がテキストから UI になる
+2. **Server Driven UI という系譜**：「schema で UI を配る」は昔からあった
+3. **OpenUI と A2UI**：Generative UI の 2 つの実装
+4. **Demo**：Next.js + json-render でカタログ型を体感する
 
 </div>
 
@@ -64,9 +64,9 @@ layout: section
 
 <div class="section-num">02</div>
 
-# 系譜: Server Driven UI
+# Server Driven UI という系譜
 
-<div class="section-sub">"schema で UI を配る" は、実は昔からある</div>
+<div class="section-sub">「schema で UI を配る」は、実は昔からある</div>
 
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #ffb86c; letter-spacing: 0.2em; opacity: 0.8; }
@@ -83,9 +83,9 @@ layout: section
 
 <div class="section-num">03</div>
 
-# 実装: OpenUI と A2UI
+# OpenUI と A2UI
 
-<div class="section-sub">Generative UI をプロダクションに載せるための 2 つのアプローチ</div>
+<div class="section-sub">Generative UI をプロダクションに載せるための 2 つの実装</div>
 
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #50fa7b; letter-spacing: 0.2em; opacity: 0.8; }
@@ -123,9 +123,9 @@ layout: default
 
 <div class="mt-6 text-lg">
 
-- Generative UI = **応答としての UI**。ランタイムで生成される
-- 自由生成ではなく **カタログ型(スキーマ制約)** が本命
-- SDUI の知見はそのまま活きる — **JSON を書く主体がサーバーから LLM に変わっただけ**
+- Generative UI は、実行時に生成される「応答としての UI」
+- 本命は自由生成ではなくカタログ型(スキーマ制約)。壊れた出力を画面に出さないため
+- SDUI の知見はそのまま活きる。JSON を書く主体がサーバーから LLM に変わっただけ
 - **コンポーネントカタログの設計力が、そのまま Generative UI の品質になる**
 
 </div>

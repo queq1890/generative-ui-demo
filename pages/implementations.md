@@ -41,7 +41,7 @@ layout: default
 layout: default
 ---
 
-# OpenUI ① — 4 つの構成要素
+# OpenUI を構成する 4 つの要素
 
 <div class="grid grid-cols-2 gap-4 mt-6 text-sm">
 
@@ -60,9 +60,9 @@ layout: default
 layout: default
 ---
 
-# OpenUI ② — 独自言語をストリーミング
+# OpenUI 言語のストリーミング
 
-JSON ではなく、**トークン効率の良い行指向・位置指定の構文**
+JSON ではなく、**トークン効率の良い行指向かつ位置指定の構文**
 
 ```
 # TODO: OpenUI 言語の実際の出力例を貼る
@@ -70,7 +70,7 @@ JSON ではなく、**トークン効率の良い行指向・位置指定の構�
 
 <div class="mt-4 text-sm opacity-70">
 
-- JSON より少ないトークンで同じ UI を表現 → 速い・安い
+- JSON より少ないトークンで同じ UI を表現できる → 速く、安い
 - 行単位でパースできる → 途中まででも描画できる(ストリーミングと相性◎)
 
 </div>
@@ -79,10 +79,11 @@ JSON ではなく、**トークン効率の良い行指向・位置指定の構�
 layout: default
 ---
 
-# A2UI ① — Google の agent→UI プロトコル
+# A2UI の仕組み
 
 <div class="mt-6">
 
+- Google が開発した、エージェントが UI を届けるためのプロトコル
 - エージェントが **宣言的 JSON** で UI を記述し、クライアントへ送る
 - クライアントは**事前定義された UI カタログ**の範囲でレンダリング
 - A2A(Agent2Agent)エコシステムの一部。エージェント間通信の先に「人間に見せる UI」を置く
@@ -97,7 +98,7 @@ layout: default
 layout: default
 ---
 
-# A2UI ② — クライアント実装
+# A2UI のクライアント実装
 
 ```tsx
 // TODO: A2UI の React クライアントのコード例を貼る

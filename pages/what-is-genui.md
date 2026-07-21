@@ -25,7 +25,7 @@ layout: default
 ### ✨ UI で返る世界
 
 時刻表テーブル + 絞り込み + 予約ボタン<br>
-**読む**のではなく**操作する**
+読むのではなく、**操作する**
 
 </div>
 </v-click>
@@ -71,9 +71,9 @@ layout: default
 
 # もう身近にある実例
 
-- **ChatGPT** — Apps SDK でチャット内にアプリ UI(Spotify、Zillow…)
-- **Claude** — 応答の中で地図・チャートを生成
-- **Gemini** — Dynamic View(応答ごとに UI を組み立てる)
+- **ChatGPT**：Apps SDK でチャット内にアプリ UI(Spotify、Zillow…)
+- **Claude**：応答の中で地図やチャートを生成
+- **Gemini**：Dynamic View(応答ごとに UI を組み立てる)
 
 <!-- TODO: スクリーンショットを入れる -->
 
@@ -91,7 +91,7 @@ layout: default
 
 v0 / Lovable / Bolt
 
-**開発者向け**。生成されたコードをレビューしてデプロイする。今日の話では**ない**
+**開発者向け**。生成されたコードをレビューしてデプロイする。今日の話ではない
 
 </div>
 
@@ -138,7 +138,7 @@ LLM に HTML / コードを直接書かせる
 
 事前定義したコンポーネントの組み合わせを JSON 等で出力させる
 
-- 安全・一貫したデザイン
+- 安全で、デザインも一貫する
 - 出せる UI はカタログの範囲内
 
 </div>
@@ -146,7 +146,7 @@ LLM に HTML / コードを直接書かせる
 </div>
 
 <div class="mt-6 text-center opacity-80">
-プロダクションの本命は <strong>カタログ型</strong> — そしてこの発想、どこかで見たことが…?
+プロダクションの本命は<strong>カタログ型</strong>。そしてこの発想、どこかで見たことが…?
 </div>
 
 <style>
