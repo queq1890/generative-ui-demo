@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+# チャット UI の限界
+
+<div class="mt-6">
+
+「東京から大阪、明日の朝イチで行きたい」
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+
+<div class="pain">
+
+### 😩 テキストの壁
+
+のぞみ 1 号は 6:00 東京発、8:22 新大阪着です。<br>
+のぞみ 3 号は 6:15 東京発…(以下 20 行続く)
+
+</div>
+
+<v-click>
+<div class="gain">
+
+### ✨ UI で返る世界
+
+時刻表テーブル + 絞り込み + 予約ボタン<br>
+**読む**のではなく**操作する**
+
+</div>
+</v-click>
+
+</div>
+</div>
+
+<style>
+.pain, .gain { border-radius: 0.6rem; padding: 0.8rem 1.2rem; }
+.pain { background: #331e1e; } .pain h3 { color: #ff5555; }
+.gain { background: #1e3226; } .gain h3 { color: #50fa7b; }
+</style>
+
+---
+layout: default
+---
+
+# Generative UI の定義
+
+<div class="mt-8 text-center text-xl">
+
+LLM の応答が **テキストではなく UI そのもの** になる
+
+</div>
+
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+
+<div class="step">💬 ユーザーが自然言語で依頼</div>
+<div class="step">🤖 LLM が UI の構造を生成</div>
+<div class="step">🖼️ クライアントがレンダリング</div>
+
+</div>
+
+<!-- TODO: 図解に差し替える -->
+
+<style>
+.step { background: #282a36; border: 1px solid #44475a; border-radius: 0.5rem; padding: 1rem; text-align: center; }
+</style>
+
+---
+layout: default
+---
+
+# もう身近にある実例
+
+- **ChatGPT** — Apps SDK でチャット内にアプリ UI(Spotify、Zillow…)
+- **Claude** — 応答の中で地図・チャートを生成
+- **Gemini** — Dynamic View(応答ごとに UI を組み立てる)
+
+<!-- TODO: スクリーンショットを入れる -->
+
+---
+layout: default
+---
+
+# ⚠️ 紛らわしいので区別
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+
+<div class="cat">
+
+### 開発時のコード生成
+
+v0 / Lovable / Bolt
+
+**開発者向け**。生成されたコードをレビューしてデプロイする。今日の話では**ない**
+
+</div>
+
+<div class="cat cat-hl">
+
+### ランタイム UI 生成
+
+Generative UI(今日の話)
+
+**エンドユーザー向け**。実行時に毎回、応答として UI が生成される
+
+</div>
+
+</div>
+
+<style>
+.cat { background: #282a36; border: 1px solid #44475a; border-radius: 0.6rem; padding: 0.8rem 1.4rem; }
+.cat-hl { border-color: #bd93f9; }
+.cat h3 { color: #bd93f9; }
+</style>
+
+---
+layout: default
+---
+
+# 2 つのアプローチ
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+
+<div class="cat">
+
+### 🎨 自由生成
+
+LLM に HTML / コードを直接書かせる
+
+- 表現力は無限
+- ⚠️ XSS、壊れたレイアウト、ブランド逸脱
+
+</div>
+
+<div class="cat cat-hl">
+
+### 📦 カタログ型(スキーマ制約)
+
+事前定義したコンポーネントの組み合わせを JSON 等で出力させる
+
+- 安全・一貫したデザイン
+- 出せる UI はカタログの範囲内
+
+</div>
+
+</div>
+
+<div class="mt-6 text-center opacity-80">
+プロダクションの本命は <strong>カタログ型</strong> — そしてこの発想、どこかで見たことが…?
+</div>
+
+<style>
+.cat { background: #282a36; border: 1px solid #44475a; border-radius: 0.6rem; padding: 0.8rem 1.4rem; }
+.cat-hl { border-color: #50fa7b; }
+.cat h3 { color: #f8f8f2; }
+</style>
