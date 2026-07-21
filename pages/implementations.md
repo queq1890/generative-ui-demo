@@ -29,7 +29,7 @@ layout: default
 | **OpenUI** | Thesys(2026/3 公開) | 独自言語 OpenUI Lang をストリーミング + パーサーで検証 |
 | **A2UI** | Google 発(2025/12)、現 a2ui-project | UI カタログ + 宣言的 JSON |
 | **json-render** | Vercel Labs | カタログ型を React で手軽に |
-| MCP Apps | MCP 公式拡張(SEP-1865) | `ui://` リソースをサンドボックス iframe で描画 |
+| **MCP Apps** | MCP 公式拡張(SEP-1865) | `ui://` リソースをサンドボックス iframe で描画 |
 
 </div>
 
@@ -45,7 +45,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-4 mt-6 text-sm">
 
-<div class="comp">📚 <strong>コンポーネントライブラリ</strong><br>Zod スキーマで props を定義</div>
+<div class="comp">📚 <strong>コンポーネントライブラリ</strong>(= カタログ)<br>Zod スキーマで props を定義</div>
 <div class="comp">📝 <strong>プロンプトジェネレーター</strong><br>ライブラリからシステムプロンプトを自動生成</div>
 <div class="comp">🛡️ <strong>パーサー</strong><br>出力を検証。無効な部分は削除し有効な部分のみ表示</div>
 <div class="comp">🖼️ <strong>レンダラー</strong><br>ストリーミングで段階的にレンダリング</div>
@@ -60,7 +60,7 @@ layout: default
 layout: default
 ---
 
-# OpenUI 言語のストリーミング
+# OpenUI Lang のストリーミング
 
 JSON ではなく、**トークン効率の良い行指向かつ位置指定の構文**(OpenUI Lang)
 
@@ -72,7 +72,7 @@ cols = [Col("Name", "string"), Col("Department", "string"), Col("Salary", "numbe
 rows = [["Ava Patel", "Engineering", 132000], ["Marcus Lee", "Sales", 98000]]
 ```
 
-<div class="mt-2 text-xs opacity-50">実際の出力例(リポジトリ benchmarks/samples より)</div>
+<div class="mt-2 text-xs opacity-50">実際の出力例(リポジトリ benchmarks/samples より抜粋、一部省略)</div>
 
 <div class="mt-3 text-sm opacity-70">
 
@@ -94,7 +94,7 @@ layout: default
 
 - Google が 2025/12 に発表した、エージェントが「UI を話す」ためのプロトコル(現在は a2ui-project として独立、v0.9 系)
 - エージェントが **宣言的 JSON** で UI を記述し、クライアントへ送る
-- クライアントは**信頼済みの UI カタログ**の範囲でだけレンダリング
+- クライアントは**信頼済みのコンポーネントカタログ**の範囲でだけレンダリング
 - トランスポート非依存。A2A(Agent2Agent)は公式バインディングの一つで、AG-UI や WebSocket でも運べる
 
 <div class="mt-3 opacity-70">
@@ -107,7 +107,7 @@ layout: default
 
 ```json
 {
-  "version": "v0.9.1",
+  "version": "v0.9",
   "updateComponents": {
     "surfaceId": "user_profile_card",
     "components": [
@@ -122,7 +122,7 @@ layout: default
 }
 ```
 
-<div class="mt-1 text-xs opacity-50">実際のメッセージ例(v0.9.1 公式仕様書より)。フラットなリスト + ID 参照</div>
+<div class="mt-1 text-xs opacity-50">実際のメッセージ例(v0.9 公式仕様書より)。フラットなリスト + ID 参照</div>
 
 </div>
 
@@ -151,7 +151,7 @@ return surfaces.map((surface) => (
 <div class="mt-1 text-xs opacity-50">公式 React レンダラーの Quick Start より抜粋</div>
 
 <div class="mt-4 text-sm opacity-70">
-レンダラーは差し替え可能: 公式リポジトリに Lit / Angular / React / Flutter / Markdown が並ぶ。同じ JSON がどのプラットフォームでも描画できる
+レンダラーは差し替え可能。公式リポジトリに Lit / Angular / React / Flutter / Markdown が並び、同じ JSON を各レンダラーで描画できる
 </div>
 
 ---

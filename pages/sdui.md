@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Server Driven UI とは
+# Server Driven UI(SDUI)とは
 
 <div class="mt-6 text-center">
 
@@ -45,7 +45,7 @@ layout: default
 </div>
 
 <div class="mt-4 text-sm opacity-70">
-共通点は、<strong>画面の構造をデータとして配信し、クライアントは事前定義したカタログの範囲で描画する</strong>こと
+共通点は、画面の構造をデータとして受け渡し、クライアントは事前定義したカタログの範囲で描画すること
 </div>
 
 <style>
@@ -57,7 +57,7 @@ layout: default
 出典:
 - Airbnb: A Deep Dive into Airbnb's Server-Driven UI System (Ryan Brooks, 2021)。Web も対象なのでネイティブ専用の手法ではない
 - Lyft: The Journey to Server Driven UI At Lyft Bikes and Scooters (2023)。protobuf 配信
-- Shopify: Remote Rendering: Shopify's Take on Extensible UI (2021)。remote-ui(現 Remote DOM)
+- Shopify: Remote Rendering: Shopify's Take on Extensible UI (2021)。remote-ui(現 Remote DOM)。厳密にはサーバー配信ではなく、クライアント内サンドボックスの拡張コードがコンポーネント木をホストへ送る「リモートレンダリング」— 口頭で補足すること
 - 他に DoorDash: Improving Development Velocity with Generic, Server-Driven UI Components (2021)、源流に Spotify HubFramework (2016)
 -->
 
@@ -76,7 +76,7 @@ layout: default
 </div>
 
 <div class="mt-8 text-center opacity-80">
-この難しさと解法の蓄積が、そのまま Generative UI に引き継がれる
+この難しさと解法の蓄積が、Generative UI に引き継がれる
 </div>
 
 ---

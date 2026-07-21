@@ -32,10 +32,10 @@ layout: default
 
 <div class="mt-8 text-lg">
 
-1. **Generative UI とは**：応答がテキストから UI になる
-2. **Server Driven UI という系譜**：「schema で UI を配る」は昔からあった
-3. **OpenUI と A2UI**：Generative UI の 2 つの実装
-4. **Demo**：Next.js + json-render でカタログ型を体感する
+1. Generative UI とは：応答がテキストから UI になる
+2. Server Driven UI という系譜：「スキーマで UI を配る」は昔からあった
+3. OpenUI と A2UI：Generative UI の 2 つの実装
+4. Demo：Next.js + json-render でカタログ型を体感する
 
 </div>
 
@@ -66,7 +66,7 @@ layout: section
 
 # Server Driven UI という系譜
 
-<div class="section-sub">「schema で UI を配る」は、実は昔からある</div>
+<div class="section-sub">「スキーマで UI を配る」は、実は昔からある</div>
 
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #ffb86c; letter-spacing: 0.2em; opacity: 0.8; }
@@ -125,7 +125,7 @@ layout: default
 
 - Generative UI は、実行時に生成される「応答としての UI」
 - 本命は自由生成ではなくカタログ型(スキーマ制約)。壊れた出力を画面に出さないため
-- SDUI の知見はそのまま活きる。JSON を書く主体がサーバーから LLM に変わっただけ
+- SDUI の知見は引き継がれる。UI の宣言(JSON や OpenUI Lang)を書く主体がサーバーから LLM に変わっただけ
 - **コンポーネントカタログの設計力が、そのまま Generative UI の品質になる**
 
 </div>
@@ -202,8 +202,8 @@ layout: default
 
 - [Introducing apps in ChatGPT and the new Apps SDK](https://openai.com/index/introducing-apps-in-chatgpt/) (OpenAI, 2025)
 - [Claude builds interactive visuals right in your conversation](https://claude.com/blog/claude-builds-visuals) (Anthropic, 2026)
-- [Gemini 3 brings upgraded smarts to the Gemini app](https://blog.google/products-and-platforms/products/gemini/gemini-3-gemini-app/) (Google, 2025)
-- [Generative UI: A rich, custom, visual interactive user experience](https://research.google/blog/generative-ui-a-rich-custom-visual-interactive-user-experience-for-any-prompt/) (Google Research, 2025)
+- [Gemini 3 brings upgraded smarts and new capabilities to the Gemini app](https://blog.google/products-and-platforms/products/gemini/gemini-3-gemini-app/) (Google, 2025)
+- [Generative UI: A rich, custom, visual interactive user experience for any prompt](https://research.google/blog/generative-ui-a-rich-custom-visual-interactive-user-experience-for-any-prompt/) (Google Research, 2025)
 
 **Server Driven UI**
 
@@ -233,7 +233,7 @@ layout: default
 
 - [vercel-labs/json-render](https://github.com/vercel-labs/json-render) / [json-render.dev](https://json-render.dev)
 - [SEP-1865: MCP Apps](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx) (MCP, 2026)
-- [OpenUI と A2UI の解説記事](https://azukiazusa.dev/blog/openui-framework-for-generative-ui/) (azukiazusa.dev)
+- [OpenUI の解説記事](https://azukiazusa.dev/blog/openui-framework-for-generative-ui/) / [A2UI の解説記事](https://azukiazusa.dev/blog/a2ui-protocol/) (azukiazusa.dev)
 
 </div>
 
