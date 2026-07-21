@@ -43,12 +43,16 @@ layout: default
 
 # デモで見せたポイント
 
-<div class="mt-6">
+<div class="grid grid-cols-2 gap-6 mt-4 items-center">
+
+<div>
 
 - ✅ カタログ定義(Zod)が、そのままプロンプトと型安全性の源になる
-- ✅ ストリーミング中は、パースできた部分だけが描画される(壊れた中間状態が画面に出ない)
+- ✅ ストリーミング中は、パースできた部分だけが描画される
 - ✅ LLM がカタログ外のコンポーネントを出そうとしても、描画されない
 
 </div>
 
-<!-- TODO: デモのスクリーンショットを 1 枚貼る(ライブが事故ったときの保険) -->
+<img src="/demo-screenshot.png" class="rounded-lg border border-gray-600 shadow-lg" alt="デモアプリのレンダリング結果" />
+
+</div>

@@ -139,19 +139,6 @@ layout: center
 class: text-center
 ---
 
-# 📊 Q&A / 感想
-
-<SlidoEmbed poll-id="POLL_2_PLACEHOLDER" />
-
-<!--
-Slido Q&A: 質問受付 + 「明日から試したくなった度」投票
--->
-
----
-layout: center
-class: text-center
----
-
 # リンク集
 
 <div class="links">

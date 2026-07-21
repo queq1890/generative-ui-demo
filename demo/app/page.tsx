@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { createSpecStreamCompiler } from "@json-render/core";
-import { Renderer } from "@json-render/react";
+import { JSONUIProvider, Renderer } from "@json-render/react";
 import { registry } from "@/lib/registry";
+import { SAMPLE_SPEC } from "@/lib/sample-spec";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -53,9 +54,20 @@ export default function Home() {
         <button type="submit" disabled={loading}>
           {loading ? "生成中…" : "生成"}
         </button>
+        <button
+          type="button"
+          className="secondary"
+          onClick={() => setSpec(SAMPLE_SPEC)}
+        >
+          サンプル表示
+        </button>
       </form>
       <section className="result">
-        {spec != null && <Renderer spec={spec as never} registry={registry} />}
+        {spec != null && (
+          <JSONUIProvider registry={registry}>
+            <Renderer spec={spec as never} registry={registry} />
+          </JSONUIProvider>
+        )}
       </section>
     </main>
   );

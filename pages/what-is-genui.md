@@ -51,18 +51,43 @@ LLM の応答が **テキストではなく UI そのもの** になる
 
 </div>
 
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+<div class="mt-8 flow">
 
-<div class="step">💬 ユーザーが自然言語で依頼</div>
-<div class="step">🤖 LLM が UI の構造を生成</div>
-<div class="step">🖼️ クライアントがレンダリング</div>
+<div class="step">
+<div class="step-icon">💬</div>
+<div class="step-title">自然言語で依頼</div>
+<div class="step-body">「チームの KPI を<br>ダッシュボードで見たい」</div>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="step">
+<div class="step-icon">🤖</div>
+<div class="step-title">LLM が UI の構造を生成</div>
+<div class="step-body"><code>{ type: "Card", ... }</code></div>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="step">
+<div class="step-icon">🖼️</div>
+<div class="step-title">クライアントがレンダリング</div>
+<div class="step-body">手元のコンポーネントで描画</div>
+</div>
 
 </div>
 
-<!-- TODO: 図解に差し替える -->
-
 <style>
-.step { background: #282a36; border: 1px solid #44475a; border-radius: 0.5rem; padding: 1rem; text-align: center; }
+.flow { display: flex; align-items: stretch; justify-content: center; gap: 0.8rem; }
+.step {
+  background: #282a36; border: 1px solid #44475a; border-radius: 0.5rem;
+  padding: 1rem 1.2rem; text-align: center; width: 15rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.step-icon { font-size: 1.6rem; }
+.step-title { font-weight: 700; color: #bd93f9; margin-top: 0.4rem; font-size: 0.9rem; }
+.step-body { font-size: 0.78rem; color: #6272a4; margin-top: 0.4rem; }
+.arrow { align-self: center; font-size: 1.5rem; color: #6272a4; }
 </style>
 
 ---

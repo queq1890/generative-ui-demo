@@ -9,7 +9,7 @@
 | 持ち時間 | 15〜20 分 |
 | ボリューム | 25 枚前後(参考元 [sun-choma/febi-view-transition-api-26.07.08](https://github.com/sun-choma/febi-view-transition-api-26.07.08) と同等) |
 | スライドフレームワーク | Slidev(参考元と同じ。pnpm + GitHub Actions で GitHub Pages にデプロイ) |
-| インタラクション | Slido を iframe でスライドに埋め込み |
+| インタラクション | Slido を iframe でスライドに埋め込み(アイスブレイク投票とクイズの 2 箇所)。Q&A は Slido ではなく Google Meet のコメントで行う |
 | デモ | ライブのみ(ローカル実行)。GitHub Pages は静的ホスティングのため LLM API キーを伴うデモは公開しない |
 | 聴衆のスタック | React / Next.js |
 

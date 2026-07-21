@@ -38,6 +38,12 @@ button:disabled {
   opacity: 0.5;
 }
 
+button.secondary {
+  background: transparent;
+  border: 1px solid #7c5cff;
+  color: #7c5cff;
+}
+
 .card {
   border: 1px solid #8884;
   border-radius: 0.6rem;
