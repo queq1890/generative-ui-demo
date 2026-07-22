@@ -6,32 +6,7 @@ transition: slide-left
 
 # ✨ Generative UI
 
-AI が「応答として UI」を返す時代
-
----
-layout: center
-class: text-center
----
-
-# 📊 まずはみなさんに質問
-
-<div class="mt-6 text-xl">
-AI に UI を作らせたことはありますか?
-</div>
-
-<div class="mt-6 text-left inline-block">
-
-- 🛠️ v0 / Lovable などで作ったことがある
-- 💬 チャットのテキスト応答で十分
-- 🤔 何それ?
-
-</div>
-
-<div class="mt-8 text-sm opacity-70">
-Google Meet のコメントで教えてください
-</div>
-
-<!-- 回答は Meet のコメント欄で拾って、温度感に合わせて導入の深さを調整する -->
+AI が「レスポンスとして UI」を返す時代
 
 ---
 layout: default
@@ -41,7 +16,7 @@ layout: default
 
 <div class="mt-8 text-lg">
 
-1. Generative UI とは：応答がテキストから UI になる
+1. Generative UI とは：レスポンスがテキストから UI になる
 2. Server Driven UI という系譜：「スキーマで UI を配る」は昔からあった
 3. OpenUI と A2UI：Generative UI の 2 つの実装
 4. Demo：Next.js + json-render でカタログ型を体感する
@@ -56,7 +31,7 @@ layout: section
 
 # Generative UI とは
 
-<div class="section-sub">応答がテキストではなく、UI そのものになる</div>
+<div class="section-sub">レスポンスがテキストではなく、UI そのものになる</div>
 
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #bd93f9; letter-spacing: 0.2em; opacity: 0.8; }
@@ -132,7 +107,7 @@ layout: default
 
 <div class="mt-6 text-lg">
 
-- Generative UI は、実行時に生成される「応答としての UI」
+- Generative UI は、実行時に生成される「レスポンスとしての UI」
 - 本命は自由生成ではなくカタログ型(スキーマ制約)。壊れた出力を画面に出さないため
 - SDUI の知見は引き継がれる。UI の宣言(JSON や OpenUI Lang)を書く主体がサーバーから LLM に変わっただけ
 - **コンポーネントカタログの設計力が、そのまま Generative UI の品質になる**

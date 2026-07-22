@@ -9,14 +9,17 @@
 | 持ち時間 | 15〜20 分 |
 | ボリューム | 25 枚前後(参考元 [sun-choma/febi-view-transition-api-26.07.08](https://github.com/sun-choma/febi-view-transition-api-26.07.08) と同等) |
 | スライドフレームワーク | Slidev(参考元と同じ。pnpm + GitHub Actions で GitHub Pages にデプロイ) |
-| インタラクション | Slido は使わない。アイスブレイク・クイズ・Q&A はすべて Google Meet のコメントで行う(質問スライドは表示のみ) |
+| インタラクション | Slido は使わない。アイスブレイク・クイズのスライドは廃止(2026-07-22)。Q&A は Google Meet のコメントで行う |
 | デモ | ライブのみ(ローカル実行)。GitHub Pages は静的ホスティングのため LLM API キーを伴うデモは公開しない |
 | 聴衆のスタック | React / Next.js |
 
 ## 用語集
 
+### レスポンス
+LLM がプロンプトに対して返すもの。本リポジトリの正準語は**「レスポンス」**であり、スライド・ドキュメント内で「応答」とは表記しない(2026-07-22 決定。「レスポンスとしての UI」のようなキーフレーズを含め全箇所で統一)。
+
 ### Generative UI
-LLM がチャット応答としてテキストではなく **UI そのものを生成・返却**する仕組み。v0 のような「開発時のコード生成」とは区別する(こちらはランタイム生成)。
+LLM がチャットのレスポンスとしてテキストではなく **UI そのものを生成・返却**する仕組み。v0 のような「開発時のコード生成」とは区別する(こちらはランタイム生成)。
 
 ### OpenUI
 **Thesys 社の [thesysdev/openui](https://github.com/thesysdev/openui)** を指す。Generative UI のオープン標準(MIT、2026-03 公開)。
