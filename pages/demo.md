@@ -27,6 +27,103 @@ layout: default
 </style>
 
 ---
+layout: default
+---
+
+# Demo ①：カタログを定義する — catalog.ts
+
+```ts {1|5-6|all}
+export const catalog = defineCatalog(schema, {
+  components: {
+    Card:  { description: "見出し付きのカードコンテナ。他のコンポーネントを子に持てる",
+             props: z.object({ title: z.string() }) },
+    Stat:  { description: "数値のハイライト表示(KPI など)",
+             props: z.object({ label: z.string(), value: z.string() }) },
+    Table: { description: "表形式のデータ表示",
+             props: z.object({ headers: z.array(z.string()),
+                               rows: z.array(z.array(z.string())) }) },
+    Button: { description: "アクションを実行するボタン",
+              props: z.object({ label: z.string() }) },
+  },
+});
+```
+
+<div class="mt-1 text-xs opacity-50">デモ実装 lib/catalog.ts より(簡略化)</div>
+
+<div class="mt-2 text-sm">
+
+<div>① カタログがすべての起点。このデモの UI 語彙はこのファイルで完結する</div>
+<div v-click="1">② 各部品は <strong>description</strong>(LLM に読ませる説明)と <strong>props</strong>(Zod スキーマ)のペアで定義する</div>
+<div v-click="2">③ ここに定義した 4 つだけが LLM の出力候補になる。カタログ外のコンポーネントは「存在しない」</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Demo ②：カタログがプロンプトになる — route.ts
+
+```ts {10|14|all}
+import { anthropic } from "@ai-sdk/anthropic";
+import { streamText } from "ai";
+import { catalog } from "@/lib/catalog";
+
+export async function POST(req: Request) {
+  const { prompt } = await req.json();
+
+  const result = streamText({
+    model: anthropic("claude-sonnet-5"),
+    system: catalog.prompt(),
+    prompt,
+  });
+
+  return result.toTextStreamResponse();
+}
+```
+
+<div class="mt-1 text-xs opacity-50">デモ実装 app/api/generate/route.ts(ほぼ全文)</div>
+
+<div class="mt-2 text-sm">
+
+<div>① <code>catalog.prompt()</code> がカタログ定義からシステムプロンプトを自動生成 —「この部品を JSON Patch で出力せよ」という指示になる</div>
+<div v-click="1">② LLM の出力(1 行 = 1 Patch の JSONL)を、加工せずそのままストリーミングで返す</div>
+<div v-click="2">③ サーバーはこれで全部。UI の知識はカタログに集約されている</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Demo ③：Patch を逐次適用して描画 — page.tsx
+
+```tsx {3-6|10|all}
+const compiler = createSpecStreamCompiler<Spec>();
+
+while (!done) {
+  const { result } = compiler.push(decoder.decode(value));
+  setSpec(result);
+}
+
+return (
+  <JSONUIProvider registry={registry}>
+    <Renderer spec={spec} registry={registry} />
+  </JSONUIProvider>
+);
+```
+
+<div class="mt-1 text-xs opacity-50">デモ実装 app/page.tsx より抜粋(簡略化)</div>
+
+<div class="mt-2 text-sm">
+
+<div>① チャンクを <code>push</code> すると、<strong>完成した Patch 行だけ</strong>が spec に適用される。<code>setSpec</code> のたびに UI が育つ</div>
+<div v-click="1">② <code>Renderer</code> が spec を registry(カタログ各部品の React 実装)で描画。カタログ外の type は描画しない</div>
+<div v-click="2">③ つまり、壊れた中間状態が画面に出ない — ここをデモで確かめる</div>
+
+</div>
+
+---
 layout: center
 class: text-center
 ---

@@ -18,19 +18,21 @@ export const { registry } = defineRegistry(catalog, {
         <span className="stat-value">{props.value}</span>
       </div>
     ),
+    // ストリーミング中は headers / rows が未着のまま描画されることがあるため、
+    // 空配列にフォールバックする
     Table: ({ props }) => (
       <table>
         <thead>
           <tr>
-            {props.headers.map((h) => (
+            {(props.headers ?? []).map((h) => (
               <th key={h}>{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {props.rows.map((row, i) => (
+          {(props.rows ?? []).map((row, i) => (
             <tr key={i}>
-              {row.map((cell, j) => (
+              {(row ?? []).map((cell, j) => (
                 <td key={j}>{cell}</td>
               ))}
             </tr>

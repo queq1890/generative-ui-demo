@@ -49,7 +49,7 @@ layout: default
 
 <div class="mt-8 text-center text-xl">
 
-LLM の応答が **テキストではなく UI そのもの** になる
+LLM のレスポンスが **テキストではなく UI そのもの** になる
 
 </div>
 
@@ -101,13 +101,13 @@ layout: default
 <div class="mt-4">
 
 - **ChatGPT**：Apps SDK(2025/10 発表、MCP を拡張したオープン規格)。チャット内に Spotify や Zillow のアプリ UI が開く
-- **Claude**：応答の中にチャートや図をインラインで生成し、会話で修正できる(2026/3 ベータ)
+- **Claude**：レスポンスの中にチャートや図をインラインで生成し、会話で修正できる(2026/3 ベータ)
 - **Gemini**：Dynamic View(2025/11、Gemini 3 と同時発表)。プロンプトごとに UI を設計してコーディングする
 
 </div>
 
 <div class="mt-6 text-sm opacity-70">
-主要 3 プラットフォームが、この 1 年で一斉に「応答としての UI」へ踏み出した
+主要 3 プラットフォームが、この 1 年で一斉に「レスポンスとしての UI」へ踏み出した
 </div>
 
 <!--
@@ -141,7 +141,7 @@ v0 / Lovable / Bolt
 
 Generative UI(今日の話)
 
-**エンドユーザー向け**。実行時に毎回、応答として UI が生成される
+**エンドユーザー向け**。実行時に毎回、レスポンスとして UI が生成される
 
 </div>
 

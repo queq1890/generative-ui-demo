@@ -1,15 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { createSpecStreamCompiler } from "@json-render/core";
+import { useMemo, useState } from "react";
+import { createSpecStreamCompiler, type Spec } from "@json-render/core";
 import { JSONUIProvider, Renderer } from "@json-render/react";
 import { registry } from "@/lib/registry";
 import { SAMPLE_SPEC } from "@/lib/sample-spec";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
-  const [spec, setSpec] = useState<unknown>(null);
+  const [spec, setSpec] = useState<Spec | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // LLM が spec に含めた state ({"$state": "/..."} バインディングの参照先) を
+  // Provider の state ストアへ反映する。compiler は state を in-place で更新する
+  // ことがあるため、spec が更新されるたびに新しい参照を渡して同期を確実にする。
+  const initialState = useMemo(() => ({ ...(spec?.state ?? {}) }), [spec]);
 
   async function generate() {
     setLoading(true);
@@ -22,7 +27,9 @@ export default function Home() {
       });
       const reader = res.body!.getReader();
       const decoder = new TextDecoder();
-      const compiler = createSpecStreamCompiler();
+      // 最初の patch (root 設定) 適用直後は elements が存在せず
+      // Renderer の spec.elements[spec.root] で落ちるため、初期値で elements を用意する
+      const compiler = createSpecStreamCompiler<Spec>({ elements: {} });
 
       while (true) {
         const { done, value } = await reader.read();
@@ -64,8 +71,8 @@ export default function Home() {
       </form>
       <section className="result">
         {spec != null && (
-          <JSONUIProvider registry={registry}>
-            <Renderer spec={spec as never} registry={registry} />
+          <JSONUIProvider registry={registry} initialState={initialState}>
+            <Renderer spec={spec} registry={registry} loading={loading} />
           </JSONUIProvider>
         )}
       </section>
