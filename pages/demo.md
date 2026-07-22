@@ -99,7 +99,7 @@ layout: default
 # Demo ③：Patch を逐次適用して描画 — page.tsx
 
 ```tsx {3-6|10|all}
-const compiler = createSpecStreamCompiler<Spec>();
+const compiler = createSpecStreamCompiler<Spec>({ elements: {} });
 
 while (!done) {
   const { result } = compiler.push(decoder.decode(value));
@@ -119,7 +119,7 @@ return (
 
 <div>① チャンクを <code>push</code> すると、<strong>完成した Patch 行だけ</strong>が spec に適用される。<code>setSpec</code> のたびに UI が育つ</div>
 <div v-click="1">② <code>Renderer</code> が spec を registry(カタログ各部品の React 実装)で描画。カタログ外の type は描画しない</div>
-<div v-click="2">③ つまり、壊れた中間状態が画面に出ない — ここをデモで確かめる</div>
+<div v-click="2">③ つまり、壊れた中間状態が画面に出ない — ここをデモで確かめる(初期値 <code>{ elements: {} }</code> は、最初の Patch 直後に elements 未定義で描画が落ちるのを防ぐ保険)</div>
 
 </div>
 
