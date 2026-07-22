@@ -186,7 +186,7 @@ LLM に HTML / コードを直接書かせる
 </div>
 
 <div class="mt-6 text-center opacity-80">
-プロダクションの本命は<strong>カタログ型</strong>。そしてこの発想、どこかで見たことが…?
+プロダクションの本命は<strong>カタログ型</strong>
 </div>
 
 <style>
