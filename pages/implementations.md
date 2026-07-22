@@ -11,7 +11,6 @@ layout: default
 | **OpenUI** | Thesys(2026/3 公開) | 独自言語 OpenUI Lang をストリーミング + パーサーで検証 |
 | **A2UI** | Google 発(2025/12)、現 a2ui-project | UI カタログ + 宣言的 JSON |
 | **json-render** | Vercel Labs | カタログ型を React で手軽に |
-| **MCP Apps** | MCP 公式拡張(SEP-1865) | `ui://` リソースをサンドボックス iframe で描画 |
 
 </div>
 

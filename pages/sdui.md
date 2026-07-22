@@ -65,45 +65,6 @@ layout: default
 layout: default
 ---
 
-# カタログ制約のコードはこう見える — Shopify
-
-```tsx {10-12|1-2|all}
-import '@shopify/ui-extensions/preact';
-import { render } from 'preact';
-
-export default async () => {
-  render(<Extension />, document.body);
-};
-
-function Extension() {
-  return (
-    <s-banner heading="配送のご案内">
-      <s-text>¥5,000 以上のご注文で送料無料になります</s-text>
-    </s-banner>
-  );
-}
-```
-
-<div class="mt-1 text-xs opacity-50">チェックアウト拡張の例(公式 docs 2026-07 API の形式に基づく・簡略化)</div>
-
-<div class="mt-3 text-sm">
-
-<div>① 使えるのは <code>s-banner</code> / <code>s-text</code> など <strong>Shopify が定義したコンポーネントだけ</strong> = カタログ制約</div>
-<div v-click="1">② 拡張コードはサンドボックス内で実行され、チェックアウトの DOM には直接触れない</div>
-<div v-click="2">③ 組み上げたコンポーネント木は<strong>ホスト(チェックアウト画面)側が自前の実装で描画</strong>する</div>
-
-</div>
-
-<!--
-ファクト(2026-07 検証): checkout UI extensions は 2025-10 API から Preact + Web Components(s-* プレフィックス)に移行。
-最新 API は 2026-07。バンドル上限 64KB。旧 @shopify/ui-extensions-react/checkout の reactExtension 形式は旧 API。
-口頭補足: この「カタログの範囲でしか組めない」制約を、サードパーティ開発者ではなく LLM に課すのがカタログ型 Generative UI。
--->
-
----
-layout: default
----
-
 # SDUI が教えてくれた難しさ
 
 <div class="mt-6">
