@@ -6,6 +6,41 @@ import { JSONUIProvider, Renderer } from "@json-render/react";
 import { registry } from "@/lib/registry";
 import { SAMPLE_SPEC } from "@/lib/sample-spec";
 
+// /api/generate のストリームを読み、Patch が適用されて spec が育つたびに
+// 途中経過の Spec を yield する。React の状態には一切触れない純粋な生成処理。
+async function* streamSpec(
+  prompt: string,
+  signal: AbortSignal,
+): AsyncGenerator<Spec> {
+  const res = await fetch("/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt }),
+    signal,
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const reader = res.body?.getReader();
+  if (!reader) throw new Error("レスポンスボディが空です");
+
+  const decoder = new TextDecoder();
+  // 最初の patch (root 設定) 適用直後は elements が存在せず
+  // Renderer の spec.elements[spec.root] で落ちるため、初期値で elements を用意する
+  const compiler = createSpecStreamCompiler<Spec>({ elements: {} });
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      const { result } = compiler.push(decoder.decode(value, { stream: true }));
+      if (result) yield result;
+    }
+  } finally {
+    // 呼び出し側が途中で break / throw してもストリームを確実に閉じる
+    reader.cancel().catch(() => {});
+  }
+  yield compiler.getResult();
+}
+
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [spec, setSpec] = useState<Spec | null>(null);
@@ -22,39 +57,27 @@ export default function Home() {
   const initialState = useMemo(() => ({ ...(spec?.state ?? {}) }), [spec]);
 
   async function generate() {
+    // 直前の生成を打ち切り、この生成を「現在の生成」として登録する
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
+    const { signal } = controller;
+
     setLoading(true);
     setError(null);
     setSpec(null);
     try {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const reader = res.body?.getReader();
-      if (!reader) throw new Error("レスポンスボディが空です");
-      const decoder = new TextDecoder();
-      // 最初の patch (root 設定) 適用直後は elements が存在せず
-      // Renderer の spec.elements[spec.root] で落ちるため、初期値で elements を用意する
-      const compiler = createSpecStreamCompiler<Spec>({ elements: {} });
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done || controller.signal.aborted) break;
-        const { result } = compiler.push(decoder.decode(value, { stream: true }));
-        if (result && !controller.signal.aborted) setSpec(result);
+      for await (const partial of streamSpec(prompt, signal)) {
+        if (signal.aborted) break;
+        setSpec(partial);
       }
-      if (!controller.signal.aborted) setSpec(compiler.getResult());
     } catch (e) {
-      if (!controller.signal.aborted) {
+      // abort 由来の例外は意図した打ち切りなので、エラー表示しない
+      if (!signal.aborted) {
         setError(e instanceof Error ? e.message : String(e));
       }
     } finally {
+      // 新しい生成が始まっていたら、loading の管理はそちらへ移っている
       if (abortRef.current === controller) {
         setLoading(false);
       }
