@@ -16,10 +16,10 @@ layout: default
 
 <div class="mt-8 text-lg">
 
-1. Generative UI とは：レスポンスがテキストから UI になる
-2. Server Driven UI という系譜：「スキーマで UI を配る」は昔からあった
-3. OpenUI と A2UI：Generative UI の 2 つの実装
-4. Demo：Next.js + json-render でカタログ型を体感する
+1. Generative UI とは
+2. Server Driven UI という系譜
+3. OpenUI と A2UI
+4. Demo
 
 </div>
 
@@ -110,12 +110,7 @@ layout: default
 - Generative UI は、実行時に生成される「レスポンスとしての UI」
 - 本命は自由生成ではなくカタログ型(スキーマ制約)。壊れた出力を画面に出さないため
 - SDUI の知見は引き継がれる。UI の宣言(JSON や OpenUI Lang)を書く主体がサーバーから LLM に変わっただけ
-- **コンポーネントカタログの設計力が、そのまま Generative UI の品質になる**
 
-</div>
-
-<div class="mt-8 text-sm opacity-70">
-FE エンジニアの仕事は減らない。カタログとスキーマを設計する人が必要になる。
 </div>
 
 ---

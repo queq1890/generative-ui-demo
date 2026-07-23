@@ -75,10 +75,6 @@ layout: default
 
 </div>
 
-<div class="mt-8 text-center opacity-80">
-この難しさと解法の蓄積が、Generative UI に引き継がれる
-</div>
-
 ---
 layout: center
 class: text-center
