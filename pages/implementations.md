@@ -76,7 +76,6 @@ layout: default
 - Google が 2025/12 に発表した、エージェントが「UI を話す」ためのプロトコル(現在は a2ui-project として独立、v0.9 系)
 - エージェントが **宣言的 JSON** で UI を記述し、クライアントへ送る
 - クライアントは**信頼済みのコンポーネントカタログ**の範囲でだけレンダリング
-- トランスポート非依存。A2A(Agent2Agent)は公式バインディングの一つで、AG-UI や WebSocket でも運べる
 
 <div class="mt-3 opacity-70">
 "safe like data, but expressive like code" (公式 README)
@@ -156,7 +155,7 @@ layout: default
 | | OpenUI | A2UI | json-render |
 |---|---|---|---|
 | 表現形式 | OpenUI Lang(独自言語) | JSON(4 種のメッセージ) | JSON Patch の JSONL |
-| トークン効率 | ◎ JSON 比 最大 -67% | ○ | ○ |
+| ストリーミングの単位 | **行**(1 行 = 1 文。生成中の出力をそのままパース) | **メッセージ**(完成した JSON を逐次適用) | **行**(1 行 = 1 Patch) |
 | 安全性の担保 | パーサーが無効な部分を落とす | 信頼済みカタログに制約 | カタログ制約 + Zod 検証 |
 | レンダラー | React(Vue / Svelte は初期段階) | Lit / Angular / React / Flutter | React / Vue / Svelte / RN ほか |
 | 成熟度 | 言語仕様 v0.5、開発活発 | v0.9 系、早期プレビュー | v0.19 |
@@ -164,5 +163,17 @@ layout: default
 </div>
 
 <div class="mt-4 text-sm opacity-70">
-どれも共通するのは「カタログ + スキーマ + 検証」。json-render はこのカタログ型を最速で試せる → 次のデモで
+どれも「カタログ + スキーマ + 検証」と段階描画が前提。json-render はこのカタログ型を最速で試せる → 次のデモで
 </div>
+
+<!--
+ストリーミングの単位のファクト(2026-07 検証済み):
+- OpenUI Lang / json-render は LLM のトークンストリームを行単位でパースし、生成途中から描画できる
+- A2UI も段階描画を明示的に設計に組み込んでいる(v0.9.1 仕様書):
+  "Rendering can begin as soon as the root component is defined, with the client filling in or updating the rest of the tree progressively"
+  フラットな隣接リストゆえ「コンポーネントは任意の順序で送ってよい」、未到着のデータパスは undefined として扱う
+- ただし A2UI の適用単位は完成した JSON メッセージ。生成途中の JSON を半分だけ適用することはできず、
+  エージェント側がメッセージ単位にバッファして逐次送信する。そのぶんトランスポート(A2A の SSE / AG-UI / WebSocket)に乗せやすい
+- 口頭: 「行かメッセージか」の違いは、LLM の生出力を直接描画に繋ぐか、エージェントが刻んで送るかの設計思想の違い
+-->
+
