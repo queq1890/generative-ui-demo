@@ -80,15 +80,9 @@ layout: center
 class: text-center
 ---
 
-# JSON を書く主体が、<br>サーバーから **LLM** に変わった
-
-<div class="mt-8 text-lg opacity-80">
+<div class="text-lg opacity-80">
 
 SDUI: サーバーのロジックが JSON を組み立てる<br>
 Generative UI: **LLM が文脈に応じて JSON を組み立てる**
 
-</div>
-
-<div class="mt-8 text-sm opacity-60">
-カタログ、スキーマ、バリデーション。道具立てが同じだから、FE の知見がそのまま活きる
 </div>
