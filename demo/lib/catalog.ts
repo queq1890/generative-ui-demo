@@ -11,6 +11,9 @@ export const catalog = defineCatalog(schema, {
       props: z.object({
         title: z.string(),
       }),
+      // プロンプトの AVAILABLE COMPONENTS に [accepts children] を付け、
+      // 「子を持てるのは Card」であることを LLM に明示する
+      slots: ["default"],
     },
     Stat: {
       description: "数値のハイライト表示(KPI など)",

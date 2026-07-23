@@ -44,6 +44,11 @@ button.secondary {
   color: #7c5cff;
 }
 
+.error {
+  color: #e5484d;
+  font-size: 0.9rem;
+}
+
 .card {
   border: 1px solid #8884;
   border-radius: 0.6rem;
