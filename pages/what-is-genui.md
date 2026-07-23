@@ -121,42 +121,6 @@ layout: default
 layout: default
 ---
 
-# ⚠️ 紛らわしいので区別
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-
-<div class="cat">
-
-### 開発時のコード生成
-
-v0 / Lovable / Bolt
-
-**開発者向け**。生成されたコードをレビューしてデプロイする。今日の話ではない
-
-</div>
-
-<div class="cat cat-hl">
-
-### ランタイム UI 生成
-
-Generative UI(今日の話)
-
-**エンドユーザー向け**。実行時に毎回、レスポンスとして UI が生成される
-
-</div>
-
-</div>
-
-<style>
-.cat { background: #282a36; border: 1px solid #44475a; border-radius: 0.6rem; padding: 0.8rem 1.4rem; }
-.cat-hl { border-color: #bd93f9; }
-.cat h3 { color: #bd93f9; }
-</style>
-
----
-layout: default
----
-
 # 2 つのアプローチ
 
 <div class="grid grid-cols-2 gap-6 mt-6">
